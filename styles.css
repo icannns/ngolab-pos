@@ -1,0 +1,46 @@
+body {
+    background-color: #1f1f1f;
+    color: #fff;
+}
+
+.sidebar {
+    height: 100vh;
+    padding-top: 20px;
+}
+
+.card {
+    border: none;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card h1 {
+    font-size: 4rem;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+hr {
+    border-color: #555;
+}
+
+.modal-content {
+    background-color: #222;
+}
+
+.modal-body {
+    text-align: center;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
