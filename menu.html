@@ -16,10 +16,16 @@
             padding: 10px 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+        .search-input {
+            width: 50%;
+        }
         #sidebar {
             background-color: #ffffff;
-            height: 100vh;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            margin-left: 10px;
+            height: 350px;
+            margin-top:20px;
         }
         #sidebar .nav-link {
             color: #495057;
@@ -30,6 +36,7 @@
         #sidebar .nav-link.active {
             background-color: #e9ecef;
             border-radius: 8px;
+            margin-top: 5px;
         }
         .container-fluid {
             max-width: 100%;
@@ -66,23 +73,19 @@
 
         /* Sidebar Kanan */
         #sidebar-right {
-            background-color: #ffffff;
-            height: 100vh;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            right: 0;
-            top: 0;
+            position: absolute;
             width: 350px;
             padding-top: 20px;
-            padding-left: 20px;
-            padding-right: 20px;
+            margin-left: 1200px;
             overflow-y: auto;
+            border-radius: 20px;
         }
         .order-summary {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
+            background-color: #ffffff;
+
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 20px;
         }
         .order-summary h5 {
             margin-bottom: 20px;
@@ -120,7 +123,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-light">
         <div class="container-fluid">
-            <input class="form-control me-2 search-input" type="search" placeholder="Search product or any order..." aria-label="Search">
+            <input class="form-control me-2 search-input" type="search" placeholder="Search product or any order..." aria-label="Search" id="search">
             <button onclick="window.location.href='index.html'" class="btn btn-outline-success">Beranda</button>
         </div>
     </nav>
@@ -158,6 +161,36 @@
                     <div id="coworking" class="category-section">
                         <h3 class="category-title">Coworking</h3>
                         <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Nasi Goreng">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nasi Goreng</h5>
+                                        <p class="card-text">Rp 20.000</p>
+                                        <button class="btn btn-primary add-to-order" data-item="Nasi Goreng" data-price="20000">Tambah ke Pesanan</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Nasi Goreng">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nasi Goreng</h5>
+                                        <p class="card-text">Rp 20.000</p>
+                                        <button class="btn btn-primary add-to-order" data-item="Nasi Goreng" data-price="20000">Tambah ke Pesanan</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Nasi Goreng">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Nasi Goreng</h5>
+                                        <p class="card-text">Rp 20.000</p>
+                                        <button class="btn btn-primary add-to-order" data-item="Nasi Goreng" data-price="20000">Tambah ke Pesanan</button>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-md-4">
                                 <div class="card">
                                     <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Nasi Goreng">
