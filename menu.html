@@ -1,19 +1,25 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html> 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - POS System</title>
+    <title>POS System with Right Sidebar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .navbar {
+            background-color: white !important;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         #sidebar {
-            height: 100vh;
             background-color: #ffffff;
+            height: 100vh;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            padding-top: 20px;
         }
         #sidebar .nav-link {
             color: #495057;
@@ -23,72 +29,134 @@
         }
         #sidebar .nav-link.active {
             background-color: #e9ecef;
+            border-radius: 8px;
         }
-        .card {
-            border: none;
+        .container-fluid {
+            max-width: 100%;
+        }
+        .main-content {
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .stat-card {
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
-        .btn-primary {
+        .stat-card h5 {
+            font-weight: bold;
+        }
+        .stat-card p {
+            font-size: 1.5rem;
+            color: #495057;
+        }
+        .category-section {
+            display: none;
+        }
+        .footer-text {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Sidebar Kanan */
+        #sidebar-right {
+            background-color: #ffffff;
+            height: 100vh;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 350px;
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            overflow-y: auto;
+        }
+        .order-summary {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .order-summary h5 {
+            margin-bottom: 20px;
+        }
+        .order-summary .btn-group {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .order-summary .item {
+            margin-bottom: 10px;
+        }
+        .order-summary .subtotal,
+        .order-summary .total {
+            margin-top: 20px;
+        }
+        .order-summary .total-pay {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .btn-success {
+            width: 100%;
+            margin-top: 20px;
             background-color: #28a745;
             border: none;
         }
-        .category-section {
-            margin-bottom: 30px;
-        }
-        .category-title {
-            font-weight: bold;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-        .menu-title {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        .btn-disabled {
-            background-color: #adb5bd;
-            border: none;
-            cursor: not-allowed;
+        .discount-info {
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
         }
     </style>
 </head>
 <body>
-    <!-- Sidebar -->
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-light">
+        <div class="container-fluid">
+            <input class="form-control me-2 search-input" type="search" placeholder="Search product or any order..." aria-label="Search">
+            <button onclick="window.location.href='index.html'" class="btn btn-outline-success">Beranda</button>
+        </div>
+    </nav>
+
     <div class="container-fluid mt-4">
         <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-2 bg-light" id="sidebar">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.html">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="payment.html">Pembayaran</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="orders.html">Pesanan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pengaturan</a>
-                    </li>
-                </ul>
-                <div class="mt-5">
-                    <small>V.1.0</small>
-                </div>
+            <!-- Sidebar Kiri -->
+            <div class="col-md-2" id="sidebar">
+                <nav class="nav flex-column">
+                    <div class="nav-item">
+                        <a class="nav-link" href="#" data-filter="coworking">Coworking</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" href="#" data-filter="express">Express</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" href="#" data-filter="kortail">Kortail</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" href="#" data-filter="service">Service</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" href="#" data-filter="help">Help</a>
+                    </div>
+                </nav>
+                <small class="footer-text">V.1.0</small>
             </div>
 
-            <!-- Menu Section -->
-            <div class="col-md-10">
+            <!-- Main Content -->
+            <div class="col-md-7">
                 <div class="container mt-4">
                     <h2 class="menu-title">Daftar Menu</h2>
                     
-                    <!-- Kategori Makanan -->
-                    <div class="category-section">
-                        <h3 class="category-title">Makanan</h3>
+                    <!-- Kategori Coworking -->
+                    <div id="coworking" class="category-section">
+                        <h3 class="category-title">Coworking</h3>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="card">
@@ -96,7 +164,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Nasi Goreng</h5>
                                         <p class="card-text">Rp 20.000</p>
-                                        <button class="btn btn-primary btn-disabled" disabled>Tambah ke Pesanan</button>
+                                        <button class="btn btn-primary add-to-order" data-item="Nasi Goreng" data-price="20000">Tambah ke Pesanan</button>
                                     </div>
                                 </div>
                             </div>
@@ -106,34 +174,24 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Mie Goreng</h5>
                                         <p class="card-text">Rp 15.000</p>
-                                        <button class="btn btn-primary btn-disabled" disabled>Tambah ke Pesanan</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Ayam Bakar">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ayam Bakar</h5>
-                                        <p class="card-text">Rp 25.000</p>
-                                        <button class="btn btn-primary btn-disabled" disabled>Tambah ke Pesanan</button>
+                                        <button class="btn btn-primary add-to-order" data-item="Mie Goreng" data-price="15000">Tambah ke Pesanan</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Kategori Minuman -->
-                    <div class="category-section">
-                        <h3 class="category-title">Minuman</h3>
+                    <!-- Kategori Express -->
+                    <div id="express" class="category-section">
+                        <h3 class="category-title">Express</h3>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="card">
                                     <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Es Teh">
                                     <div class="card-body">
                                         <h5 class="card-title">Es Teh</h5>
-                                        <p class="card-text">Rp 5.000</p>
-                                        <button class="btn btn-primary btn-disabled" disabled>Tambah ke Pesanan</button>
+                                        <p class="card-text">9</p>
+                                        <button class="btn btn-primary add-to-order" data-item="Es Teh" data-price="5000">Tambah ke Pesanan</button>
                                     </div>
                                 </div>
                             </div>
@@ -143,31 +201,197 @@
                                     <div class="card-body">
                                         <h5 class="card-title">Jus Jeruk</h5>
                                         <p class="card-text">Rp 10.000</p>
-                                        <button class="btn btn-primary btn-disabled" disabled>Tambah ke Pesanan</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Kopi">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Kopi</h5>
-                                        <p class="card-text">Rp 8.000</p>
-                                        <button class="btn btn-primary btn-disabled" disabled>Tambah ke Pesanan</button>
+                                        <button class="btn btn-primary add-to-order" data-item="Jus Jeruk" data-price="10000">Tambah ke Pesanan</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
+                </div>
+            </div>
 
-                    <!-- Tombol Lanjutkan ke Pembayaran -->
-                    <div class="mt-4">
-                        <button class="btn btn-success w-100">Lanjutkan ke Pembayaran</button>
+            <!-- Sidebar Kanan (Order Summary) -->
+            <div id="sidebar-right">
+                <div class="order-summary">
+                    <h5>Order #1234</h5>
+                    <div class="btn-group" role="group" aria-label="Order Type">
+                        <button type="button" class="btn btn-outline-secondary order-type" data-type="Dine In">Dine In</button>
+                        <button type="button" class="btn btn-outline-secondary order-type" data-type="To Go">To Go</button>
+                        <button type="button" class="btn btn-outline-secondary order-type" data-type="Delivery">Delivery</button>
                     </div>
+                    <div class="discount-info" id="order-description"></div>
+
+                    <!-- Items will be added here dynamically -->
+                    <div id="order-items"></div>
+
+                    <div class="mt-3">
+                        <input type="text" class="form-control" id="voucher" placeholder="Enter voucher code">
+                        <button class="btn btn-outline-primary w-100 mt-2" id="apply-voucher">Apply Voucher</button>
+                    </div>
+
+                    <div class="subtotal mt-3">
+                        <div class="d-flex justify-content-between">
+                            <span>Subtotal</span>
+                            <span id="subtotal">Rp0</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Discount</span>
+                            <span id="discount">-Rp0</span>
+                        </div>
+                    </div>
+
+                    <div class="total-pay d-flex justify-content-between mt-3">
+                        <span>Total pay</span>
+                        <span id="total">Rp0</span>
+                    </div>
+
+                    <button class="btn btn-success mt-3">Continue to Payment</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Filter Kategori
+            const links = document.querySelectorAll('#sidebar .nav-link');
+            const sections = document.querySelectorAll('.category-section');
+
+            links.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const filter = this.getAttribute('data-filter');
+                    sections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    document.getElementById(filter).style.display = 'block';
+                    links.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Tampilkan kategori pertama secara default
+            document.getElementById('coworking').style.display = 'block';
+
+            // Logika Order Type
+            const orderDescription = document.getElementById('order-description');
+            document.querySelectorAll('.order-type').forEach(button => {
+                button.addEventListener('click', function () {
+                    const type = this.getAttribute('data-type');
+                    let description = '';
+
+                    if (type === 'To Go') {
+                        description = 'To Go Selected.';
+                    } else if (type === 'Delivery') {
+                        description = 'Delivery selected. Delivery charges apply.';
+                    } else {
+                        description = 'Dine In selected.';
+                    }
+
+                    orderDescription.textContent = description;
+                    calculateDiscount(type);
+                });
+            });
+
+            let orderItems = [];
+            let subtotal = 0;
+            let discount = 0;
+
+            // Tambah ke Pesanan
+            document.querySelectorAll('.add-to-order').forEach(button => {
+                button.addEventListener('click', function () {
+                    const item = this.getAttribute('data-item');
+                    const price = parseInt(this.getAttribute('data-price'));
+                    const existingItemIndex = orderItems.findIndex(order => order.item === item);
+
+                    if (existingItemIndex > -1) {
+                        orderItems[existingItemIndex].quantity++;
+                    } else {
+                        orderItems.push({ item, price, quantity: 1 });
+                    }
+
+                    updateOrderSummary();
+                });
+            });
+
+            // Voucher and Discount Logic
+            document.getElementById('apply-voucher').addEventListener('click', function () {
+                const voucher = document.getElementById('voucher').value.trim();
+                applyVoucher(voucher);
+            });
+
+            function applyVoucher(voucher) {
+                if (voucher === 'DISKON15') {
+                    discount = subtotal * 0.15;
+                } else if (voucher === 'DISKON25') {
+                    discount = subtotal * 0.25;
+                } else {
+                    discount = 0;
+                    alert('Invalid voucher');
+                }
+                updateOrderSummary();
+            }
+
+            function calculateDiscount(type) {
+                if (type === 'To Go', 'Delivery', 'Dine In') {
+                    discount = subtotal * 0.1; // Discount 10%
+                } else {
+                    discount = 0; // Dine In, no discount
+                }
+                updateOrderSummary();
+            }
+
+            function updateOrderSummary() {
+                const orderList = document.getElementById('order-items');
+                orderList.innerHTML = ''; // Bersihkan item pesanan
+                subtotal = 0;
+
+                orderItems.forEach((order, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.classList.add('item');
+                    const itemTotal = order.price * order.quantity;
+
+                    itemDiv.innerHTML = `
+                        <span>${order.item}</span>
+                        <div class="input-group">
+                            <button class="btn btn-outline-secondary decrease-item" data-index="${index}">-</button>
+                            <input type="text" class="form-control text-center" value="${order.quantity}" style="max-width: 50px;" readonly>
+                            <button class="btn btn-outline-secondary increase-item" data-index="${index}">+</button>
+                            <span class="ms-3">Rp${itemTotal}</span>
+                        </div>
+                    `;
+                    orderList.appendChild(itemDiv);
+                    subtotal += itemTotal;
+                });
+
+                document.getElementById('subtotal').textContent = `Rp${subtotal}`;
+                document.getElementById('discount').textContent = `-Rp${discount}`;
+                document.getElementById('total').textContent = `Rp${subtotal - discount}`;
+
+                // Handle increase and decrease buttons
+                document.querySelectorAll('.increase-item').forEach(button => {
+                    button.addEventListener('click', function () {
+                        const index = this.getAttribute('data-index');
+                        orderItems[index].quantity++;
+                        updateOrderSummary();
+                    });
+                });
+
+                document.querySelectorAll('.decrease-item').forEach(button => {
+                    button.addEventListener('click', function () {
+                        const index = this.getAttribute('data-index');
+                        if (orderItems[index].quantity > 1) {
+                            orderItems[index].quantity--;
+                        } else {
+                            orderItems.splice(index, 1); // Hapus item jika quantity 0
+                        }
+                        updateOrderSummary();
+                    });
+                });
+            }
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
