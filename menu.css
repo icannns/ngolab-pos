@@ -1,0 +1,96 @@
+body { 
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.navbar {
+    background-color: white !important;
+    padding: 20px;
+    top: 0;
+    width: 100%;
+    position: sticky;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    width: 50%; /* Responsive input */
+}
+
+#sidebar {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    top: 100px; /* Sticky position from the top */
+    width: 15%;
+    left: 1%;
+    position: fixed;
+    height: 50%; /* Sticky height */
+}
+
+#sidebar .nav-link {
+    color: #495057;
+    padding: 0.5rem;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+#sidebar .nav-link.active {
+    background-color: #e9ecef;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+.container-fluid {
+    max-width: 100%;
+}
+
+.main-content {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.category-section {
+    display: none;
+}
+
+.footer-text {
+    font-size: 0.8rem;
+    color: #6c757d;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.order-summary {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+/* Default styling for larger screens */
+#sidebar-right {
+    top: 100px;
+    right: 1%;
+    width: 18%;
+    height: 50%;
+    position: fixed;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 992px) {
+    #sidebar-right {
+        width: 100%;
+        height: auto; /* Adjust height to fit content */
+        position: relative; /* Make it non-fixed */
+        top: auto; /* Remove top offset */
+        margin-top: 20px; /* Optional spacing */
+    }
+}
+
