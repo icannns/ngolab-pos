@@ -3,6 +3,10 @@ body {
     color: #333;
 }
 
+h3{
+    color: #333;
+}
+
 .navbar {
     background-color: white !important;
     padding: 20px;
@@ -18,14 +22,14 @@ body {
 }
 
 #sidebar {
-    background-color: #ffffff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-    top: 100px; /* Sticky position from the top */
-    width: 15%;
-    left: 1%;
-    position: fixed;
-    height: 50%; /* Sticky height */
+    top: 0; /* Start from the top */
+    left: 0; /* Align to the right */
+    width: 17%;
+    height: 100vh; /* Full viewport height */
+    position: fixed; /* Fixed to the viewport */
+    overflow-y: auto; /* Allow scrolling if content exceeds height */
+    background-color: #ffffff; /* Set background color */
+    padding-top: 100px; /* Offset to match the top padding if needed */
 }
 
 #sidebar .nav-link {
@@ -69,28 +73,70 @@ body {
 
 .order-summary {
     background-color: #ffffff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
     padding: 20px;
 }
 
-/* Default styling for larger screens */
 #sidebar-right {
-    top: 100px;
-    right: 1%;
-    width: 18%;
-    height: 50%;
-    position: fixed;
+    top: 0; /* Start from the top */
+    right: 0; /* Align to the right */
+    width: 17%;
+    height: 100vh; /* Full viewport height */
+    position: fixed; /* Fixed to the viewport */
+    overflow-y: auto; /* Allow scrolling if content exceeds height */
+    background-color: #ffffff; /* Set background color */
+    padding-top: 100px; /* Offset to match the top padding if needed */
 }
+
 
 /* Responsive styling for smaller screens */
 @media (max-width: 992px) {
     #sidebar-right {
         width: 100%;
-        height: auto; /* Adjust height to fit content */
         position: relative; /* Make it non-fixed */
         top: auto; /* Remove top offset */
+        height: auto; /* Reset height for smaller screens */
         margin-top: 20px; /* Optional spacing */
+        overflow-y: visible; /* Remove scrolling for smaller screens if not needed */
     }
 }
+
+.transaction-title {
+    font-weight: bold;
+    margin-top: 20px;
+    color: #333;
+}
+
+.transaction-category {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.transaction-list {
+    margin-top: 15px;
+}
+
+.transaction-list .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+#filter-date,
+#search-input {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#search-button {
+    padding: 10px;
+    font-weight: bold;
+}
+
 
