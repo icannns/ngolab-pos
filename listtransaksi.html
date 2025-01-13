@@ -21,6 +21,7 @@
             top: 80px;
             z-index: 1000;
             width: 20%;
+            border-radius: 25px;
         }
         #sidebar .nav-link {
             color: #495057;
@@ -58,20 +59,49 @@
         .transaction-section.active {
             display: block;
         }
+        .transaction-section {
+            margin-top: 20px;
+        }
+
+        .list-group-item {
+            padding: 0;
+            border: none;
+            margin-bottom: 15px;
+        }
+
+        .card {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+        }
+
+        .card-title {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .card-text {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
     </style>
 </head>
 <body>
     <!-- Navigasi dengan Tambahan Pos System di Pojok Kiri Atas -->
-    <nav class="navbar navbar-light bg-light px-4 py-3">
-        <div class="container-fluid">
-            <a href="index.html" class="navbar-brand"><strong>POS System</strong></a>
+    <nav class="navbar navbar-light bg-light" style="padding: 0.5rem 1rem;">
+        <div class="container-fluid d-flex align-items-center" style="margin-top: 10px;">
+            <!-- Logo -->
+            <a href="index.html" class="navbar-brand">
+                <img src="media/All_Logo__Ko+Lab-removebg-preview.png" alt="Logo Ko+Lab" height="55" style="margin-left: 10px;">
+            </a>
         </div>
     </nav>
 
-    <div class="container-fluid">
+    <div class="container-fluid mt-5 ">
         <div class="row">
             <!-- Sidebar Kiri dengan posisi tetap -->
-            <div class="col-md-2" id="sidebar">
+            <div class="col-md-2 mt-5" id="sidebar">
                 <nav class="nav flex-column">
                     <a class="nav-link" href="#" onclick="showSection('list-coworking')">Coworking</a>
                     <a class="nav-link" href="#" onclick="showSection('list-kortail')">Kortail</a>
@@ -103,6 +133,69 @@
                     <ul class="list-group transaction-list">
                         <!-- Data transaksi coworking -->
                     </ul>
+                            <!-- Data Dummy -->
+                            <li class="list-group-item">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title">ID Transaksi: CWK12345</h5>
+                                        <p class="card-text">Nama Pemesan: John Doe</p>
+                                        <p class="card-text">Tanggal: 2025-01-12</p>
+                                        <p class="card-text">Jumlah Dana Masuk: Rp 1.500.000</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title">ID Transaksi: CWK12346</h5>
+                                        <p class="card-text">Nama Pemesan: Jane Smith</p>
+                                        <p class="card-text">Tanggal: 2025-01-11</p>
+                                        <p class="card-text">Jumlah Dana Masuk: Rp 2.000.000</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title">ID Transaksi: EAIW1432</h5>
+                                        <p class="card-text">Nama Pemesan: Sakamoto</p>
+                                        <p class="card-text">Tanggal: 2025-04-11</p>
+                                        <p class="card-text">Jumlah Dana Masuk: Rp 6.000.000</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title">ID Transaksi: EAIW1432</h5>
+                                        <p class="card-text">Nama Pemesan: Sakamoto</p>
+                                        <p class="card-text">Tanggal: 2025-04-11</p>
+                                        <p class="card-text">Jumlah Dana Masuk: Rp 6.000.000</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title">ID Transaksi: EAIW1432</h5>
+                                        <p class="card-text">Nama Pemesan: Sakamoto</p>
+                                        <p class="card-text">Tanggal: 2025-04-11</p>
+                                        <p class="card-text">Jumlah Dana Masuk: Rp 6.000.000</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title">ID Transaksi: EAIW1432</h5>
+                                        <p class="card-text">Nama Pemesan: Sakamoto</p>
+                                        <p class="card-text">Tanggal: 2025-04-11</p>
+                                        <p class="card-text">Jumlah Dana Masuk: Rp 6.000.000</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Daftar Transaksi Kortail -->
@@ -119,6 +212,7 @@
             </div>
         </div>
     </div>
+    
 
     <script>
         function showSection(sectionId) {
@@ -127,6 +221,20 @@
             });
             document.getElementById(sectionId).classList.add('active');
         }
+        function showSection(sectionId) {
+            // Sembunyikan semua transaksi
+            const sections = document.querySelectorAll('.transaction-section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Tampilkan bagian yang dipilih
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+            }
+        }
+
     </script>
 
     <!-- Scripts -->
