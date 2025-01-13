@@ -57,8 +57,11 @@ h3{
 
 .card img {
     width: 100%;
-    height: auto;
+    height: 200px; /* Tetapkan tinggi gambar agar seragam */
+    object-fit: cover; /* Memastikan gambar tetap proporsional dan terpotong jika perlu */
+    border-radius: 10px; /* Membuat sudut gambar lebih estetik */
 }
+
 
 .category-section {
     display: none;
