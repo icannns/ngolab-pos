@@ -26,34 +26,27 @@
             />
             <div class="absolute left-3 top-2.5">
               <!-- Ikon Search dari Heroicons -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M11 4a7 7 0 100 14 7 7 0 000-14zM21 21l-4.35-4.35"
-                />
+              <svg xmlns="http://www.w3.org/2000/svg"class="h-5 w-5 text-gray-500"fill="none"viewBox="0 0 24 24" stroke="currentColor"stroke-width="2">
+                <path stroke-linecap="round"stroke-linejoin="round"d="M11 4a7 7 0 100 14 7 7 0 000-14zM21 21l-4.35-4.35"/>
               </svg>
             </div>
           </div>
         </div>
-        
+
         <!-- Beranda -->
-        <button class="flex items-center border border-gray-300 rounded-lg px-4 py-2 hover:text-gray-900 hover:bg-gray-100">
-          Beranda
+
+        <button
+          class="flex items-center border border-gray-300 rounded-lg px-4 py-2 hover:text-gray-900 hover:bg-gray-100" onclick="window.location.href='index.html'"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg"fill="none"viewBox="0 0 24 24"stroke-width="1.5"stroke="currentColor"class="size-6">
+            <path stroke-linecap="round"stroke-linejoin="round"d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/>
+          </svg>
+          <span class="ml-2">Beranda</span>
         </button>
       </div>
     </nav>
 
     <!-- Main Content -->
-    <!-- Gunakan flex + tinggi sisa layar (dikurangi navbar 3.5rem), 
-         agar sidebar kiri & kanan sticky, dan hanya tengah yang scroll -->
     <div class="flex h-[calc(100vh-3.5rem)]">
       <!-- Left Sidebar -->
       <div class="w-48 p-4 border-r h-full sticky top-14">
@@ -62,21 +55,8 @@
           class="bg-gradient-to-r from-orange-400 to-yellow-400 text-white rounded-lg p-3 mb-3 flex items-center"
         >
           <!-- Contoh ikon (Heroicon outline "Briefcase") -->
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5 mr-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 12h6m-3-3v6m-7 4h14a2 2 0 002-2V9a2 2 0 00-2-2h-3.5l-.42-1.382A2 2 0 0011.22 4H8.78a2 2 0 00-1.88 1.618L6.5 7H3a2 2 0 00-2 2v7a2 2 0 002 2z"
-            />
-          </svg>
-          <span class="font-medium">Coworking</span>
+          <img src="https://img.icons8.com/?size=25&id=RhihAchdHyOr&format=png&color=000000" alt="cowork" >
+          <span class="font-medium ml-2">Coworking</span>
         </div>
         <!-- Link Lainnya -->
         <div class="space-y-2">
@@ -85,42 +65,16 @@
             class="flex items-center px-3 py-2 rounded-lg hover:bg-gray-100"
           >
             <!-- Contoh ikon (Heroicon outline "Adjustments") -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 mr-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9.75 17L9 21m0 0h-.75C7.009 21 6 19.991 6 18.75v-.75m3 3V10.5m4.5 10.5L12 21m0 0h-.75C10.009 21 9 19.991 9 18.75v-.75m3 3V3m4.5 18l-.75-4m0 0h-.75C14.009 17 13 15.991 13 14.75v-.75m3 3V5.5"
-              />
-            </svg>
-            Kortail
+            <img src="https://img.icons8.com/?size=25&id=mKEzGS0Ej8FH&format=png&color=000000" alt="">
+            <span class="font-medium ml-2">Kortail</span>
           </a>
           <a
             href="#"
             class="flex items-center px-3 py-2 rounded-lg hover:bg-gray-100"
           >
             <!-- Contoh ikon (Heroicon outline "Lightning Bolt") -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 mr-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M13 10V3L4 14h7v7l9-11h-7z"
-              />
-            </svg>
-            Express
+            <img src="https://img.icons8.com/?size=25&id=9aS0IadEbesZ&format=png&color=000000" alt="express">
+            <span class="font-medium ml-2">Express</span>
           </a>
         </div>
       </div>
@@ -135,20 +89,7 @@
             class="cursor-pointer flex items-center space-x-2 py-3 px-5 rounded-lg bg-gradient-to-r from-orange-400 to-yellow-400 text-white"
           >
             <!-- Contoh ikon (Heroicon outline "Photograph") -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 3h18M3 7h18M5 11h14a2 2 0 012 2v5.5A3.5 3.5 0 0117.5 22H6.5A3.5 3.5 0 013 18.5V13a2 2 0 012-2z"
-              />
-            </svg>
+           <img src=" https://img.icons8.com/?size=50&id=EXvr6tcLwhtl&format=png&color=000000" alt="Main Course Icon">
             <div>
               <div class="font-medium">Main Course</div>
               <div class="text-sm">7 Items</div>
@@ -156,24 +97,9 @@
           </div>
 
           <!-- Category 2 (Makanan) -->
-          <div
-            class="cursor-pointer flex items-center space-x-2 py-3 px-5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700"
-          >
+          <div class="cursor-pointer flex items-center space-x-2 py-3 px-5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700">
             <!-- Contoh ikon (Heroicon outline "Cake") -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M21 11.5a8.38 8.38 0 01-.9 3.8A8.5 8.5 0 1112.5 4v.5m0-1V4m0 0a8.5 8.5 0 01.88 13.3m-2.76.34A8.49 8.49 0 013.13 9M12.5 13v.01"
-              />
-            </svg>
+            <img src="https://img.icons8.com/ios/452/food.png" class="h-6 w-6" alt="Food Icon" />
             <div>
               <div class="font-medium">Makanan</div>
               <div class="text-sm text-gray-500">12 Items</div>
@@ -185,20 +111,7 @@
             class="cursor-pointer flex items-center space-x-2 py-3 px-5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700"
           >
             <!-- Contoh ikon (Heroicon outline "Coffee") -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 19h16v-1a2 2 0 012-2h0a2 2 0 002-2v-3a6 6 0 10-12 0v3a2 2 0 002 2h0a2 2 0 012 2v1zm0 0h16"
-              />
-            </svg>
+            <img src="https://img.icons8.com/?size=50&id=LauLGCKDklJQ&format=png&color=000000"  alt="Coffee Icon" />
             <div>
               <div class="font-medium">Minuman & Kopi</div>
               <div class="text-sm text-gray-500">10 Items</div>
@@ -210,20 +123,7 @@
             class="cursor-pointer flex items-center space-x-2 py-3 px-5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700"
           >
             <!-- Contoh ikon (Heroicon outline "EmojiHappy") -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15.172 7l-6.586 6.586a2 2 0 000 2.828l5.172 5.172M10 14l-2 2m14-6a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
+            <img src="https://img.icons8.com/?size=50&id=LZeR3FD40bjf&format=png&color=000000" alt="noodle">
             <div>
               <div class="font-medium">Indomie & Dessert</div>
               <div class="text-sm text-gray-500">8 Items</div>
@@ -364,9 +264,7 @@
             <div class="p-3">
               <h3 class="font-medium">Nasi Goreng</h3>
               <p class="text-gray-600">Rp 40.000</p>
-              <button
-                class="mt-2 w-full py-2 rounded-lg text-white bg-gradient-to-r from-orange-400 to-yellow-400 hover:opacity-90 transition font-medium"
-              >
+              <button class="mt-2 w-full py-2 rounded-lg text-white bg-gradient-to-r from-orange-400 to-yellow-400 hover:opacity-90 transition font-medium">
                 Tambah Pesanan
               </button>
             </div>
@@ -502,7 +400,9 @@
         <div class="flex-1 overflow-y-auto">
           <div class="p-4 space-y-4">
             <!-- Item 1 -->
-            <div class="flex items-center border border-gray-300 rounded-lg p-2 shadow-sm">
+            <div
+              class="flex items-center border border-gray-300 rounded-lg p-2 shadow-sm"
+            >
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpB85yRn2pcuQKsvC8oGeIBAyOq5sUe1P60w&s"
                 alt="Wagyu A5"
@@ -554,8 +454,10 @@
             </div>
 
             <!-- Item 2 (duplicate as needed) -->
-             <!-- Item 1 -->
-            <div class="flex items-center border border-gray-300 rounded-lg p-2 shadow-sm">
+            <!-- Item 1 -->
+            <div
+              class="flex items-center border border-gray-300 rounded-lg p-2 shadow-sm"
+            >
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpB85yRn2pcuQKsvC8oGeIBAyOq5sUe1P60w&s"
                 alt="Wagyu A5"
@@ -575,12 +477,16 @@
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="size-6"
                       >
                         <path
-                          d="M17.414 2.586a2 2 0 010 2.828l-1.828 1.828-2.828-2.828 1.828-1.828a2 2 0 012.828 0zM15.586 7l-2.828-2.828L4 13v2.828h2.828l8.586-8.586z"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125"
                         />
                       </svg>
                     </button>

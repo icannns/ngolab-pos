@@ -1,243 +1,333 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem POS - List Transaksi</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="menu.css">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            padding-top: 80px;
-        }
-        #sidebar {
-            height: calc(100vh - 80px);
-            background-color: #ffffff;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-            padding-top: 20px;
-            position: fixed;
-            left: 0;
-            top: 80px;
-            z-index: 1000;
-            width: 20%;
-            border-radius: 25px;
-        }
-        #sidebar .nav-link {
-            color: #495057;
-            padding: 1rem;
-            font-weight: 500;
-            font-size: 1.1rem;
-            transition: background-color 0.3s;
-        }
-        #sidebar .nav-link.active, #sidebar .nav-link:hover {
-            background-color: #e9ecef;
-        }
-        .main-content {
-            padding: 40px;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-            margin-left: 20%;
-            width: 80%;
-        }
-        .transaction-category {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1050;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .transaction-section {
-            display: none;
-        }
-        .transaction-section.active {
-            display: block;
-        }
-        .transaction-section {
-            margin-top: 20px;
-        }
-
-        .list-group-item {
-            padding: 0;
-            border: none;
-            margin-bottom: 15px;
-        }
-
-        .card {
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border: 1px solid #ddd;
-        }
-
-        .card-title {
-            font-weight: bold;
-            color: #333;
-        }
-
-        .card-text {
-            margin-bottom: 5px;
-            color: #555;
-        }
-
-    </style>
-</head>
-<body>
-    <!-- Navigasi dengan Tambahan Pos System di Pojok Kiri Atas -->
-    <nav class="navbar navbar-light bg-light" style="padding: 0.5rem 1rem;">
-        <div class="container-fluid d-flex align-items-center" style="margin-top: 10px;">
-            <!-- Logo -->
-            <a href="index.html" class="navbar-brand">
-                <img src="media/All_Logo__Ko+Lab-removebg-preview.png" alt="Logo Ko+Lab" height="55" style="margin-left: 10px;">
-            </a>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ko+Lab - List Transaksi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    <!-- Navigation -->
+    <nav class="bg-white border-b sticky top-0 z-50">
+      <div class="flex items-center justify-between h-16 px-6">
+        <!-- Logo -->
+        <div class="flex items-center space-x-8">
+          <img src="/media/All_Logo__Ko+Lab-removebg-preview.png" alt="Ko+Lab Logo" class="h-8" />
+          <!-- Search Bar -->
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Search Transaksi..."
+              class="w-80 px-4 py-2 pl-10 rounded-lg bg-gray-50 border focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            />
+            <div class="absolute left-3 top-2.5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
+
+        <!-- Beranda Button -->
+        <button
+          class="flex items-center space-x-2 px-4 py-2 rounded-lg border hover:bg-gray-50"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+            />
+          </svg>
+          <span>Beranda</span>
+        </button>
+      </div>
     </nav>
 
-    <div class="container-fluid mt-5 ">
-        <div class="row">
-            <!-- Sidebar Kiri dengan posisi tetap -->
-            <div class="col-md-2 mt-5" id="sidebar">
-                <nav class="nav flex-column">
-                    <a class="nav-link" href="#" onclick="showSection('list-coworking')">Coworking</a>
-                    <a class="nav-link" href="#" onclick="showSection('list-kortail')">Kortail</a>
-                    <a class="nav-link" href="#" onclick="showSection('list-express')">Express</a>
-                </nav>
-                <small class="footer-text mt-4">Versi 1.0</small>
-            </div>
-
-            <!-- Konten Utama dengan Lebar Disesuaikan -->
-            <div class="col-md-10 main-content">
-                <h2 class="text-center">List Transaksi</h2>
-
-                <!-- Filter dan Tombol Transaksi -->
-                <div class="row mt-3 mb-4">
-                    <div class="col-md-4">
-                        <input type="date" class="form-control" id="filter-date" placeholder="Pilih Tanggal">
-                    </div>
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" id="search-input" placeholder="Cari nama pemesan atau ID transaksi">
-                    </div>
-                    <div class="col-md-4">
-                        <button class="btn btn-primary w-100" id="create-button" onclick="window.location.href='menu.html'">Buat Transaksi</button>
-                    </div>
-                </div>
-
-                <!-- Daftar Transaksi Coworking -->
-                <div id="list-coworking" class="transaction-section active">
-                    <h3 class="transaction-category">Transaksi Coworking</h3>
-                    <ul class="list-group transaction-list">
-                        <!-- Data transaksi coworking -->
-                    </ul>
-                            <!-- Data Dummy -->
-                            <li class="list-group-item">
-                                <div class="card shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title">ID Transaksi: CWK12345</h5>
-                                        <p class="card-text">Nama Pemesan: John Doe</p>
-                                        <p class="card-text">Tanggal: 2025-01-12</p>
-                                        <p class="card-text">Jumlah Dana Masuk: Rp 1.500.000</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="card shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title">ID Transaksi: CWK12346</h5>
-                                        <p class="card-text">Nama Pemesan: Jane Smith</p>
-                                        <p class="card-text">Tanggal: 2025-01-11</p>
-                                        <p class="card-text">Jumlah Dana Masuk: Rp 2.000.000</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="card shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title">ID Transaksi: EAIW1432</h5>
-                                        <p class="card-text">Nama Pemesan: Sakamoto</p>
-                                        <p class="card-text">Tanggal: 2025-04-11</p>
-                                        <p class="card-text">Jumlah Dana Masuk: Rp 6.000.000</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="card shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title">ID Transaksi: EAIW1432</h5>
-                                        <p class="card-text">Nama Pemesan: Sakamoto</p>
-                                        <p class="card-text">Tanggal: 2025-04-11</p>
-                                        <p class="card-text">Jumlah Dana Masuk: Rp 6.000.000</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="card shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title">ID Transaksi: EAIW1432</h5>
-                                        <p class="card-text">Nama Pemesan: Sakamoto</p>
-                                        <p class="card-text">Tanggal: 2025-04-11</p>
-                                        <p class="card-text">Jumlah Dana Masuk: Rp 6.000.000</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="card shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title">ID Transaksi: EAIW1432</h5>
-                                        <p class="card-text">Nama Pemesan: Sakamoto</p>
-                                        <p class="card-text">Tanggal: 2025-04-11</p>
-                                        <p class="card-text">Jumlah Dana Masuk: Rp 6.000.000</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Daftar Transaksi Kortail -->
-                <div id="list-kortail" class="transaction-section">
-                    <h3 class="transaction-category">Transaksi Kortail</h3>
-                    <ul class="list-group transaction-list"></ul>
-                </div>
-
-                <!-- Daftar Transaksi Express -->
-                <div id="list-express" class="transaction-section">
-                    <h3 class="transaction-category">Transaksi Express</h3>
-                    <ul class="list-group transaction-list"></ul>
-                </div>
-            </div>
+    <div class="flex min-h-screen">
+      <!-- Sidebar -->
+      <div class="w-48 bg-white border-r pt-4 fixed h-full">
+        <!-- Coworking Menu -->
+        <div class="mx-3 mb-4">
+          <div
+            class="bg-gradient-to-r from-orange-400 to-yellow-400 text-white rounded-lg p-3 flex items-center"
+          >
+            <svg
+              class="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+            <span class="ml-2 font-medium">Coworking</span>
+          </div>
         </div>
+
+        <!-- Other Menu Items -->
+        <div class="space-y-1 px-3">
+          <a
+            href="#"
+            class="flex items-center px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50"
+          >
+            <span class="ml-2">Kortail</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50"
+          >
+            <span class="ml-2">Express</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 ml-48 p-6">
+        <!-- Header Section -->
+        <div class="p-6">
+          <!-- Title and Description -->
+          <div class="mb-6">
+            <h1 class="text-2xl font-semibold">List Transaksi</h1>
+            <p class="text-gray-500">
+              Transaksi yang terakhir tercatat oleh sistem
+            </p>
+          </div>
+
+          <!-- Filter Buttons in a single row -->
+          <div class="flex space-x-4">
+            <button
+              class="px-4 py-2 border rounded-lg flex items-center text-orange-400 border-orange-400"
+            >
+              <span>Date & Time</span>
+            </button>
+            <button
+              class="px-4 py-2 border rounded-lg flex items-center text-red-500 border-red-500"
+            >
+              <span>Coworking</span>
+              <svg
+                class="w-4 h-4 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 9l-7 7-7-7"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="bg-white rounded-lg shadow">
+          <table class="w-full">
+            <thead>
+              <tr class="border-b">
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                >
+                  Merchant
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                >
+                  Date
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                >
+                  No.order
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                >
+                  Service Type
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                >
+                  Item Name
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                >
+                  QTY
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                >
+                  Status
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                >
+                  Payment
+                </th>
+                <th
+                  class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                >
+                  Total
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y">
+              <tr class="hover:bg-gray-50">
+                <td class="px-6 py-4 text-sm text-red-500">Coworking</td>
+                <td class="px-6 py-4 text-sm">Jan 12, 2025</td>
+                <td class="px-6 py-4 text-sm">01</td>
+                <td class="px-6 py-4 text-sm">Take Away</td>
+                <td class="px-6 py-4 text-sm">Nasi Goreng Ayam</td>
+                <td class="px-6 py-4 text-sm">1</td>
+                <td class="px-6 py-4">
+                  <span
+                    class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-600"
+                    >Done</span
+                  >
+                </td>
+                <td class="px-6 py-4">
+                  <select class="text-sm bg-transparent" title="Payment Method">
+                    <option>Cash</option>
+                    <option>Qris</option>
+                  </select>
+                </td>
+                <td class="px-6 py-4 text-sm">Rp 20.000</td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="px-6 py-4 text-sm text-blue-800">Express</td>
+                <td class="px-6 py-4 text-sm">Jan 12, 2025</td>
+                <td class="px-6 py-4 text-sm">01</td>
+                <td class="px-6 py-4 text-sm">Take Away</td>
+                <td class="px-6 py-4 text-sm">Nasi Goreng Ayam</td>
+                <td class="px-6 py-4 text-sm">1</td>
+                <td class="px-6 py-4">
+                  <span
+                    class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-600"
+                    >Done</span
+                  >
+                </td>
+                <td class="px-6 py-4">
+                  <select class="text-sm bg-transparent" title="Payment Method">
+                    <option>Cash</option>
+                    <option>Qris</option>
+                  </select>
+                </td>
+                <td class="px-6 py-4 text-sm">Rp 20.000</td>
+              </tr>
+              <!-- Add more rows as needed -->
+              <tr class="hover:bg-gray-50">
+                <td class="px-6 py-4 text-sm text-green-600">Kortail</td>
+                <td class="px-6 py-4 text-sm">Jan 12, 2025</td>
+                <td class="px-6 py-4 text-sm">01</td>
+                <td class="px-6 py-4 text-sm">Take Away</td>
+                <td class="px-6 py-4 text-sm">Nasi Goreng Ayam</td>
+                <td class="px-6 py-4 text-sm">1</td>
+                <td class="px-6 py-4">
+                  <span
+                    class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-600"
+                    >Done</span
+                  >
+                </td>
+                <td class="px-6 py-4">
+                  <select class="text-sm bg-transparent" title="Payment Method">
+                    <option>Cash</option>
+                    <option>Qris</option>
+                  </select>
+                </td>
+                <td class="px-6 py-4 text-sm">Rp 20.000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center mt-6">
+          <div
+            class="flex items-center space-x-2 bg-white rounded-full shadow px-4 py-2"
+          >
+            <button class="p-1 rounded-full hover:bg-gray-100" title="Previous Page">
+              <svg
+                class="w-5 h-5 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+            <button
+              class="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-400 text-white"
+            >
+              1
+            </button>
+            <button
+              class="w-8 h-8 flex items-center justify-center rounded-full text-gray-600 hover:bg-gray-100"
+            >
+              2
+            </button>
+            <button
+              class="w-8 h-8 flex items-center justify-center rounded-full text-gray-600 hover:bg-gray-100"
+            >
+              3
+            </button>
+            <button
+              class="w-8 h-8 flex items-center justify-center rounded-full text-gray-600 hover:bg-gray-100"
+            >
+              4
+            </button>
+            <button
+              class="w-8 h-8 flex items-center justify-center rounded-full text-gray-600 hover:bg-gray-100"
+            >
+              5
+            </button>
+            <button class="p-1 rounded-full hover:bg-gray-100" title="Next Page">
+              <svg
+                class="w-5 h-5 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    
-
-    <script>
-        function showSection(sectionId) {
-            document.querySelectorAll('.transaction-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(sectionId).classList.add('active');
-        }
-        function showSection(sectionId) {
-            // Sembunyikan semua transaksi
-            const sections = document.querySelectorAll('.transaction-section');
-            sections.forEach(section => {
-                section.style.display = 'none';
-            });
-
-            // Tampilkan bagian yang dipilih
-            const selectedSection = document.getElementById(sectionId);
-            if (selectedSection) {
-                selectedSection.style.display = 'block';
-            }
-        }
-
-    </script>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>
