@@ -5,304 +5,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem POS - Beranda</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            background-color: #f9fafb;
-            color: #111827;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 1.5rem;
-            height: 64px;
-            background-color: #ffffff;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-logo img {
-            height: 40px;
-        }
-
-        .navbar-search {
-            flex: 1;
-            max-width: 400px;
-            margin: 0 1.5rem;
-            display: flex;
-            align-items: center;
-            background-color: #f3f4f6;
-            border: 1px solid #e5e7eb;
-            border-radius: 9999px;
-            padding: 0.5rem 1rem;
-        }
-
-        .navbar-search input {
-            flex: 1;
-            border: none;
-            background-color: transparent;
-            outline: none;
-            font-size: 0.875rem;
-            color: #6b7280;
-        }
-
-        .navbar-search svg {
-            width: 20px;
-            height: 20px;
-            color: #9ca3af;
-            margin-right: 0.5rem;
-        }
-
-        .navbar-button {
-            padding: 0.5rem 1rem;
-            background-color: #fcd34d;
-            color: #111827;
-            border-radius: 9999px;
-            font-weight: bold;
-            font-size: 0.875rem;
-            border: 1px solid transparent;
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-
-        .navbar-button:hover {
-            background-color: transparent;
-            border-color: #fcd34d;
-            color: #fcd34d;
-        }
-
-        .stat-card {
-            background-color: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .stat-card img {
-            width: 50px;
-            height: 50px;
-            border-radius: 0.375rem;
-            margin-bottom: 1rem;
-        }
-
-        .stat-card h2 {
-            font-size: 1rem;
-            color: #6b7280;
-            margin-bottom: 0.5rem;
-            text-align: center;
-        }
-
-        .stat-card p {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #111827;
-        }
-
-        .table-container {
-            margin-top: 2rem;
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            border-spacing: 0;
-            background-color: #ffffff;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        th, td {
-            text-align: left;
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        th {
-            background-color: #f9fafb;
-            font-weight: 600;
-            color: #374151;
-        }
-
-        tr {
-            transition: background-color 0.3s;
-        }
-
-        tr:hover {
-            background-color: #f3f4f6;
-        }
-
-        .status-badge {
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.5rem;
-            font-size: 0.875rem;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .status-done {
-            background-color: #d1fae5;
-            color: #065f46;
-        }
-
-        .status-process {
-            background-color: #fef3c7;
-            color: #92400e;
-        }
-
-        .status-debt {
-            background-color: #fee2e2;
-            color: #991b1b;
-        }
-    </style>
 </head>
-<body>
+<body class="bg-gray-50">
     <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-logo">
-            <img src="media/All_Logo__Ko+Lab-removebg-preview.png" alt="Logo">
+    <nav class="flex justify-between items-center bg-white px-6 py-4 shadow-md">
+        <div class="flex items-center space-x-4">
+            <img src="media/All_Logo__Ko+Lab-removebg-preview.png" alt="Logo" class="h-10">
+            <div class="flex items-center bg-gray-100 border border-gray-300 rounded-full px-4 py-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500 mr-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m2.1-5.15a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z" />
+                </svg>
+                <input type="text" placeholder="Search menu..." class="bg-transparent focus:outline-none text-sm text-gray-600">
+            </div>
         </div>
-        <div class="navbar-search">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m2.1-5.15a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z" />
-            </svg>
-            <input type="text" placeholder="Search menu...">
-        </div>
-        <button class="navbar-button">Lihat Menu</button>
+        <button class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white font-medium px-4 py-2 rounded-lg hover:from-yellow-500 hover:to-yellow-600">Lihat Menu</button>
     </nav>
 
     <!-- Sidebar & Main Content -->
-    <div class="flex mt-16">
+    <div class="flex">
         <!-- Sidebar -->
-        <aside class="w-64 bg-white shadow-md h-screen px-4 py-6">
+        <aside class="w-64 bg-white shadow-md h-screen p-6">
             <nav class="space-y-4">
-                <a href="#" class="block py-2 px-4 bg-gradient-to-r from-yellow-200 to-yellow-400 text-gray-800 font-medium rounded-lg">Beranda</a>
+                <a href="#" class="block py-2 px-4 bg-yellow-200 text-gray-800 font-medium rounded-lg">Beranda</a>
                 <a href="listtransaksi.html" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded-lg">Transaksi</a>
                 <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded-lg">Pengaturan</a>
             </nav>
         </aside>
 
         <!-- Main Content -->
-        <main class="flex-1 p-6">
-            <div class="bg-white shadow-md rounded-lg p-6">
+        <main class="flex-1 p-8">
+            <div class="bg-white shadow-md rounded-lg p-8">
                 <h1 class="text-2xl font-semibold mb-4">Selamat Datang di Sistem POS</h1>
                 <p class="text-gray-600">Pilih menu dari sidebar untuk memulai transaksi.</p>
 
-                <!-- Input Saldo & Statistics Section -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-                    <div>
+                <!-- Input Saldo -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div class="border border-gray-200 rounded-lg p-4">
                         <label class="block text-gray-700 font-medium mb-2">Input Saldo Awal</label>
-                        <div class="flex items-center space-x-2">
-                            <input type="number" placeholder="Rp" class="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 focus:outline-none">
-                            <button class="bg-yellow-400 text-white font-medium py-2 px-4 rounded-lg hover:bg-yellow-500">Set Saldo Awal</button>
-                        </div>
+                        <input type="number" placeholder="Rp" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-400 mb-2">
+                        <button class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-3 py-3 text-sm rounded-full hover:from-yellow-500 hover:to-yellow-600">Set Saldo Awal</button>
                     </div>
-                    <div>
+                    <div class="border border-gray-200 rounded-lg p-4">
                         <label class="block text-gray-700 font-medium mb-2">Input Saldo Akhir</label>
-                        <div class="flex items-center space-x-2">
-                            <input type="number" placeholder="Rp" class="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-yellow-400 focus:outline-none">
-                            <button class="bg-yellow-400 text-white font-medium py-2 px-4 rounded-lg hover:bg-yellow-500">Set Saldo Akhir</button>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-center col-span-3 lg:col-span-1">
-                        <div class="stat-card">
-                            <h2>Total Pendapatan Bulan Ini</h2>
-                            <p>Rp 45,000,000</p>
-                        </div>
+                        <input type="number" placeholder="Rp" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-400 mb-2">
+                        <button class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-3 py-3 text-sm rounded-full hover:from-yellow-500 hover:to-yellow-600">Set Saldo Akhir</button>
                     </div>
                 </div>
 
+                <!-- Total Pendapatan -->
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="bg-white shadow-md border rounded-lg p-6">
+                        <div class="flex">
+                            <div class="flex justify-center items-center w-16 h-16 bg-gray-200 rounded-lg mr-4"></div>
+                            <div>
+                                <h2 class="text-gray-700 font-medium">Total Pendapatan Bulan Ini</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white shadow-md border rounded-lg p-6"></div>
+                    <div class="bg-white shadow-md border rounded-lg p-6"></div>
+                    <div class="bg-white shadow-md border rounded-lg p-6"></div>
+                </div>
+
                 <!-- Transactions Table -->
-                <div class="table-container">
+                <div class="mt-8">
                     <h2 class="text-lg font-semibold text-gray-700 mb-4">Transaksi Terbaru</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Merchant</th>
-                                <th>Date</th>
-                                <th>No. Order</th>
-                                <th>Service Type</th>
-                                <th>Item Name</th>
-                                <th>QTY</th>
-                                <th>Status</th>
-                                <th>Payment</th>
-                                <th>Total</th>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white rounded-lg shadow-md overflow-hidden">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="py-3 px-6 text-left text-sm font-medium text-gray-700">Merchant</th>
+                                    <th class="py-3 px-6 text-left text-sm font-medium text-gray-700">Date</th>
+                                    <th class="py-3 px-6 text-left text-sm font-medium text-gray-700">No. Order</th>
+                                    <th class="py-3 px-6 text-left text-sm font-medium text-gray-700">Service Type</th>
+                                    <th class="py-3 px-6 text-left text-sm font-medium text-gray-700">Item Name</th>
+                                    <th class="py-3 px-6 text-center text-sm font-medium text-gray-700">QTY</th>
+                                    <th class="py-3 px-6 text-center text-sm font-medium text-gray-700">Status</th>
+                                    <th class="py-3 px-6 text-left text-sm font-medium text-gray-700">Payment</th>
+                                    <th class="py-3 px-6 text-left text-sm font-medium text-gray-700">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-sm text-red-600">Coworking</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Jan 12, 2025</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">01</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Take Away</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Nasi Goreng Ayam</td>
+                                    <td class="py-3 px-6 text-center text-sm text-gray-700">1</td>
+                                    <td class="py-3 px-6 text-center">
+                                        <span class="bg-green-200 text-green-800 px-3 py-1 rounded-full text-xs font-medium">Done</span>
+                                    </td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Qris</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Rp 20.000</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-sm text-green-600">Kortail</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Jan 12, 2025</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">01</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Take Away</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Nasi Goreng Ayam</td>
+                                    <td class="py-3 px-6 text-center text-sm text-gray-700">1</td>
+                                    <td class="py-3 px-6 text-center">
+                                        <span class="bg-yellow-200 text-yellow-800 px-3 py-1 rounded-full text-xs font-medium">Process</span>
+                                    </td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Qris</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Rp 20.000</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-sm text-blue-600">Express</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Jan 12, 2025</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">01</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Take Away</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Nasi Goreng Ayam</td>
+                                    <td class="py-3 px-6 text-center text-sm text-gray-700">1</td>
+                                    <td class="py-3 px-6 text-center">
+                                        <span class="bg-red-200 text-red-800 px-3 py-1 rounded-full text-xs font-medium">Hutang</span>
+                                    </td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Qris</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Rp 20.000</td>
+                                </tr>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="text-red-600">Coworking</td>
-                                <td>Jan 12, 2025</td>
-                                <td>01</td>
-                                <td>Take Away</td>
-                                <td>Nasi Goreng Ayam</td>
-                                <td>1</td>
-                                <td><span class="status-badge status-done">Done</span></td>
-                                <td>Qris</td>
-                                <td>Rp 20,000</td>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-6 text-sm text-blue-600">Express</td>
+                                <td class="py-3 px-6 text-sm text-gray-700">Jan 12, 2025</td>
+                                <td class="py-3 px-6 text-sm text-gray-700">01</td>
+                                <td class="py-3 px-6 text-sm text-gray-700">Take Away</td>
+                                <td class="py-3 px-6 text-sm text-gray-700">Nasi Goreng Ayam</td>
+                                <td class="py-3 px-6 text-center text-sm text-gray-700">1</td>
+                                <td class="py-3 px-6 text-center">
+                                    <span class="bg-red-200 text-red-800 px-3 py-1 rounded-full text-xs font-medium">Hutang</span>
+                                </td>
+                                <td class="py-3 px-6 text-sm text-gray-700">Qris</td>
+                                <td class="py-3 px-6 text-sm text-gray-700">Rp 20.000</td>
                             </tr>
-                            <tr>
-                                <td class="text-green-600">Kortail</td>
-                                <td>Jan 12, 2025</td>
-                                <td>01</td>
-                                <td>Take Away</td>
-                                <td>Nasi Goreng Ayam</td>
-                                <td>1</td>
-                                <td><span class="status-badge status-process">Process</span></td>
-                                <td>Qris</td>
-                                <td>Rp 20,000</td>
-                            </tr>
-                            <tr>
-                                <td class="text-blue-600">Express</td>
-                                <td>Jan 12, 2025</td>
-                                <td>01</td>
-                                <td>Take Away</td>
-                                <td>Nasi Goreng Ayam</td>
-                                <td>1</td>
-                                <td><span class="status-badge status-debt">Hutang</span></td>
-                                <td>Qris</td>
-                                <td>Rp 20,000</td>
-                            </tr>
-                            <tr>
-                                <td class="text-red-600">Coworking</td>
-                                <td>Jan 12, 2025</td>
-                                <td>01</td>
-                                <td>Take Away</td>
-                                <td>Nasi Goreng Ayam</td>
-                                <td>1</td>
-                                <td><span class="status-badge status-done">Done</span></td>
-                                <td>Qris</td>
-                                <td>Rp 20,000</td>
-                            </tr>
-                            <tr>
-                                <td class="text-green-600">Kortail</td>
-                                <td>Jan 12, 2025</td>
-                                <td>01</td>
-                                <td>Take Away</td>
-                                <td>Nasi Goreng Ayam</td>
-                                <td>1</td>
-                                <td><span class="status-badge status-process">Process</span></td>
-                                <td>Qris</td>
-                                <td>Rp 20,000</td>
-                            </tr>
-                            <tr>
-                                <td class="text-blue-600">Express</td>
-                                <td>Jan 12, 2025</td>
-                                <td>01</td>
-                                <td>Take Away</td>
-                                <td>Nasi Goreng Ayam</td>
-                                <td>1</td>
-                                <td><span class="status-badge status-debt">Hutang</span></td>
-                                <td>Qris</td>
-                                <td>Rp 20,000</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </main>
