@@ -5,27 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem POS - Beranda</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 <body class="bg-gray-50">
-    <!-- Navbar -->
-    <nav class="flex justify-between items-center bg-white px-6 py-4 shadow-md">
-        <div class="flex items-center space-x-4">
-            <img src="media/All_Logo__Ko+Lab-removebg-preview.png" alt="Logo" class="h-10">
-            <div class="flex items-center bg-gray-100 border border-gray-300 rounded-full px-4 py-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500 mr-2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m2.1-5.15a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z" />
-                </svg>
-                <input type="text" placeholder="Search menu..." class="bg-transparent focus:outline-none text-sm text-gray-600">
-            </div>
+   <!-- Navbar -->
+   <nav class="flex justify-between items-center bg-white px-6 py-4 shadow-md sticky top-0 z-50">
+    <div class="flex items-center space-x-4">
+        <img src="media/All_Logo__Ko+Lab-removebg-preview.png" alt="Logo" class="h-10">
+        <div class="flex items-center bg-gray-100 border border-gray-300 rounded-full px-4 py-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-500 mr-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m2.1-5.15a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z" />
+            </svg>
+            <input type="text" placeholder="Search menu..." class="bg-transparent focus:outline-none text-sm text-gray-600">
         </div>
-        <button class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white font-medium px-4 py-2 rounded-lg hover:from-yellow-500 hover:to-yellow-600">Lihat Menu</button>
-    </nav>
+    </div>
+    <a href="menu.html" class="bg-gradient-to-r from-orange-400 to-yellow-400 text-white font-medium px-4 py-2 rounded-lg hover:opacity-90">
+        Lihat Menu
+    </a>
+</nav>
 
     <!-- Sidebar & Main Content -->
     <div class="flex">
         <!-- Sidebar -->
-        <aside class="w-64 bg-white shadow-md h-screen p-6">
-            <nav class="space-y-4">
+        <aside class="w-64 bg-white shadow-md h-screen sticky top-0 self-start">
+            <nav class="p-6 space-y-4">
                 <a href="#" class="block py-2 px-4 bg-yellow-200 text-gray-800 font-medium rounded-lg">Beranda</a>
                 <a href="listtransaksi.html" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded-lg">Transaksi</a>
                 <a href="#" class="block py-2 px-4 text-gray-600 hover:bg-gray-100 rounded-lg">Pengaturan</a>
@@ -43,28 +46,41 @@
                     <div class="border border-gray-200 rounded-lg p-4">
                         <label class="block text-gray-700 font-medium mb-2">Input Saldo Awal</label>
                         <input type="number" placeholder="Rp" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-400 mb-2">
-                        <button class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-3 py-3 text-sm rounded-full hover:from-yellow-500 hover:to-yellow-600">Set Saldo Awal</button>
+                        <button class="bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-3 py-3 text-sm rounded-full hover:opacity-90">Set Saldo Awal</button>
                     </div>
                     <div class="border border-gray-200 rounded-lg p-4">
                         <label class="block text-gray-700 font-medium mb-2">Input Saldo Akhir</label>
                         <input type="number" placeholder="Rp" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-400 mb-2">
-                        <button class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-3 py-3 text-sm rounded-full hover:from-yellow-500 hover:to-yellow-600">Set Saldo Akhir</button>
+                        <button class="bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-3 py-3 text-sm rounded-full hover:opacity-90">Set Saldo Akhir</button>
                     </div>
                 </div>
 
                 <!-- Total Pendapatan -->
                 <div class="mt-6 grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div class="bg-white shadow-md border rounded-lg p-6">
-                        <div class="flex">
-                            <div class="flex justify-center items-center w-16 h-16 bg-gray-200 rounded-lg mr-4"></div>
-                            <div>
-                                <h2 class="text-gray-700 font-medium">Total Pendapatan Bulan Ini</h2>
-                            </div>
+                        <div class="text-center">
+                            <h3 class="text-gray-700 font-medium">Total Pendapatan Bulan Ini</h3>
+                            <p class="text-2xl font-bold text-gray-800">Rp 45,000,000</p>
                         </div>
                     </div>
-                    <div class="bg-white shadow-md border rounded-lg p-6"></div>
-                    <div class="bg-white shadow-md border rounded-lg p-6"></div>
-                    <div class="bg-white shadow-md border rounded-lg p-6"></div>
+                    <div class="bg-white shadow-md border rounded-lg p-6">
+                        <div class="text-center">
+                            <h3 class="text-gray-700 font-medium">Pengeluaran Bulan Ini</h3>
+                            <p class="text-2xl font-bold text-gray-800">Rp 15,000,000</p>
+                        </div>
+                    </div>
+                    <div class="bg-white shadow-md border rounded-lg p-6">
+                        <div class="text-center">
+                            <h3 class="text-gray-700 font-medium">Laba Kotor</h3>
+                            <p class="text-2xl font-bold text-gray-800">Rp 30,000,000</p>
+                        </div>
+                    </div>
+                    <div class="bg-white shadow-md border rounded-lg p-6">
+                        <div class="text-center">
+                            <h3 class="text-gray-700 font-medium">Total Transaksi</h3>
+                            <p class="text-2xl font-bold text-gray-800">150 Transaksi</p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Transactions Table -->
@@ -86,6 +102,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <!-- Replace rows below with dynamic data -->
                                 <tr class="hover:bg-gray-50">
                                     <td class="py-3 px-6 text-sm text-red-600">Coworking</td>
                                     <td class="py-3 px-6 text-sm text-gray-700">Jan 12, 2025</td>
@@ -100,45 +117,70 @@
                                     <td class="py-3 px-6 text-sm text-gray-700">Rp 20.000</td>
                                 </tr>
                                 <tr class="hover:bg-gray-50">
-                                    <td class="py-3 px-6 text-sm text-green-600">Kortail</td>
+                                    <td class="py-3 px-6 text-sm text-blue-600">Kortail</td>
                                     <td class="py-3 px-6 text-sm text-gray-700">Jan 12, 2025</td>
-                                    <td class="py-3 px-6 text-sm text-gray-700">01</td>
-                                    <td class="py-3 px-6 text-sm text-gray-700">Take Away</td>
-                                    <td class="py-3 px-6 text-sm text-gray-700">Nasi Goreng Ayam</td>
-                                    <td class="py-3 px-6 text-center text-sm text-gray-700">1</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">02</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Dine In</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Mie Ayam</td>
+                                    <td class="py-3 px-6 text-center text-sm text-gray-700">2</td>
                                     <td class="py-3 px-6 text-center">
                                         <span class="bg-yellow-200 text-yellow-800 px-3 py-1 rounded-full text-xs font-medium">Process</span>
                                     </td>
-                                    <td class="py-3 px-6 text-sm text-gray-700">Qris</td>
-                                    <td class="py-3 px-6 text-sm text-gray-700">Rp 20.000</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Cash</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Rp 40.000</td>
                                 </tr>
                                 <tr class="hover:bg-gray-50">
-                                    <td class="py-3 px-6 text-sm text-blue-600">Express</td>
+                                    <td class="py-3 px-6 text-sm text-red-600">Express</td>
                                     <td class="py-3 px-6 text-sm text-gray-700">Jan 12, 2025</td>
-                                    <td class="py-3 px-6 text-sm text-gray-700">01</td>
-                                    <td class="py-3 px-6 text-sm text-gray-700">Take Away</td>
-                                    <td class="py-3 px-6 text-sm text-gray-700">Nasi Goreng Ayam</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">03</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Delivery</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Burger</td>
                                     <td class="py-3 px-6 text-center text-sm text-gray-700">1</td>
                                     <td class="py-3 px-6 text-center">
                                         <span class="bg-red-200 text-red-800 px-3 py-1 rounded-full text-xs font-medium">Hutang</span>
                                     </td>
-                                    <td class="py-3 px-6 text-sm text-gray-700">Qris</td>
-                                    <td class="py-3 px-6 text-sm text-gray-700">Rp 20.000</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Hutang</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Rp 25.000</td>
                                 </tr>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="py-3 px-6 text-sm text-blue-600">Express</td>
-                                <td class="py-3 px-6 text-sm text-gray-700">Jan 12, 2025</td>
-                                <td class="py-3 px-6 text-sm text-gray-700">01</td>
-                                <td class="py-3 px-6 text-sm text-gray-700">Take Away</td>
-                                <td class="py-3 px-6 text-sm text-gray-700">Nasi Goreng Ayam</td>
-                                <td class="py-3 px-6 text-center text-sm text-gray-700">1</td>
-                                <td class="py-3 px-6 text-center">
-                                    <span class="bg-red-200 text-red-800 px-3 py-1 rounded-full text-xs font-medium">Hutang</span>
-                                </td>
-                                <td class="py-3 px-6 text-sm text-gray-700">Qris</td>
-                                <td class="py-3 px-6 text-sm text-gray-700">Rp 20.000</td>
-                            </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-sm text-green-600">Coworking</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Jan 13, 2025</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">04</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Take Away</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Kopi Susu</td>
+                                    <td class="py-3 px-6 text-center text-sm text-gray-700">3</td>
+                                    <td class="py-3 px-6 text-center">
+                                        <span class="bg-green-200 text-green-800 px-3 py-1 rounded-full text-xs font-medium">Done</span>
+                                    </td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Qris</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Rp 45.000</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-sm text-blue-600">Kortail</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Jan 13, 2025</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">05</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Dine In</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Nasi Rendang</td>
+                                    <td class="py-3 px-6 text-center text-sm text-gray-700">2</td>
+                                    <td class="py-3 px-6 text-center">
+                                        <span class="bg-yellow-200 text-yellow-800 px-3 py-1 rounded-full text-xs font-medium">Process</span>
+                                    </td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Cash</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Rp 60.000</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-sm text-red-600">Express</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Jan 13, 2025</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">06</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Delivery</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Pizza</td>
+                                    <td class="py-3 px-6 text-center text-sm text-gray-700">1</td>
+                                    <td class="py-3 px-6 text-center">
+                                        <span class="bg-red-200 text-red-800 px-3 py-1 rounded-full text-xs font-medium">Hutang</span>
+                                    </td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Hutang</td>
+                                    <td class="py-3 px-6 text-sm text-gray-700">Rp 50.000</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
