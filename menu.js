@@ -1,19 +1,4 @@
-// Pastikan script ini dijalankan setelah DOM selesai dimuat
-document.addEventListener("DOMContentLoaded", function () {
-  const menuLinks = document.querySelectorAll(".menu-link"); // Pilih semua link sidebar
-  const currentPath = window.location.pathname.split("/").pop(); // Ambil nama file dari URL saat ini
 
-  menuLinks.forEach((link) => {
-    const linkPath = link.getAttribute("href").split("/").pop(); // Ambil nama file dari atribut href
-    if (linkPath === currentPath) {
-      // Tambahkan kelas "active" jika URL cocok
-      link.classList.add("bg-gradient-to-r", "from-orange-400", "to-yellow-400", "text-white");
-    } else {
-      // Pastikan kelas "active" dihapus untuk link lain
-      link.classList.remove("bg-gradient-to-r", "from-orange-400", "to-yellow-400", "text-white");
-    }
-  });
-});
 
 
 document.addEventListener("DOMContentLoaded", function () {
